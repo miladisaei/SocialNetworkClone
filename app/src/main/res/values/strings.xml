@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">SocialNetworkClone</string>
+
+    <string name="send_comment">Send</string>
+    <string name="hint_comment">Add a Comment</string>
+</resources>

@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/backgroundColor"
+    android:clickable="true"
+    android:focusable="true"
+    android:layoutDirection="rtl"
+    android:paddingBottom="10dp">
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/header_post_height"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_width="@dimen/header_post_height"
+            android:layout_height="@dimen/header_post_height"
+            android:layout_weight="0"
+            android:padding="15dp"
+            android:src="@drawable/ic_more_vert" />
+
+        <TextView
+            android:id="@+id/txtUsername"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="left|center_vertical"
+            android:text="username"
+            android:textColor="@color/textColor"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/imgProfile"
+            android:layout_width="@dimen/header_post_height"
+            android:layout_height="@dimen/header_post_height"
+            android:layout_marginHorizontal="5dp"
+            android:layout_weight="0"
+            android:padding="7dp"
+            android:src="@drawable/avatar"
+            app:shapeAppearanceOverlay="@style/roundedImageViewRounded"
+            app:strokeColor="@color/borderImage"
+            app:strokeWidth="0.7dp" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imgPost"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
+        android:src="@drawable/place_holder"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout1" />
+
+    <ImageView
+        android:id="@+id/imgBigLike"
+        android:layout_width="@dimen/big_like_size"
+        android:layout_height="@dimen/big_like_size"
+        android:alpha="0"
+        android:src="@drawable/animation_big_like"
+        app:layout_constraintBottom_toBottomOf="@+id/imgPost"
+        app:layout_constraintEnd_toEndOf="@+id/imgPost"
+        app:layout_constraintStart_toStartOf="@+id/imgPost"
+        app:layout_constraintTop_toTopOf="@+id/imgPost" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/like_layout_height"
+        android:gravity="left"
+        android:orientation="horizontal"
+        android:paddingHorizontal="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgPost">
+
+        <ImageView
+            android:layout_width="@dimen/like_layout_height"
+            android:layout_height="@dimen/like_layout_height"
+            android:layout_marginLeft="-3.5dp"
+            android:paddingVertical="10dp"
+            android:src="@drawable/ic_share"
+            app:tint="@color/iconColor" />
+
+        <ImageView
+            android:layout_width="@dimen/like_layout_height"
+            android:layout_height="@dimen/like_layout_height"
+            android:paddingVertical="9.6dp"
+            android:src="@drawable/ic_comment"
+            app:tint="@color/iconColor" />
+
+        <ImageView
+            android:id="@+id/imgLike"
+            android:layout_width="@dimen/like_layout_height"
+            android:layout_height="@dimen/like_layout_height"
+            android:paddingVertical="7.5dp"
+            android:scaleX="0.85"
+            android:scaleY="0.85"
+            android:src="@drawable/animation_dislike" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/txtLikeCounter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="13dp"
+        android:gravity="left"
+        android:text="80 likes"
+        android:textColor="@color/textColor"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+
+    <TextView
+        android:id="@+id/txtUsernameCaption"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="13dp"
+        android:gravity="left"
+        android:textColor="@color/textColor"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtLikeCounter"
+        tools:text="username" />
+
+    <TextView
+        android:id="@+id/txtCaption"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="13dp"
+        android:gravity="left"
+        android:lineSpacingExtra="1dp"
+        android:textColor="@color/textColor"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtUsernameCaption"
+        tools:text="caption" />
+
+    <TextView
+        android:id="@+id/txtAllComments"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="13dp"
+        android:layout_marginTop="6dp"
+        android:textColor="@color/textColorGray"
+        android:textSize="12sp"
+        android:gravity="left"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtCaption"
+        tools:text="View all 24 comments" />
+
+    <TextView
+        android:id="@+id/txtTime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="13dp"
+        android:layout_marginTop="3dp"
+        android:gravity="left"
+        android:textColor="@color/textColorGray"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtAllComments"
+        tools:text="Date and Time" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

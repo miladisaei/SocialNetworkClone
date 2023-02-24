@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="text_margin">16dp</dimen>
+    <dimen name="header_post_height">54dp</dimen>
+    <dimen name="like_layout_height">42dp</dimen>
+    <dimen name="add_comment_image_size">60dp</dimen>
+    <dimen name="big_like_size">100dp</dimen>
+</resources>
