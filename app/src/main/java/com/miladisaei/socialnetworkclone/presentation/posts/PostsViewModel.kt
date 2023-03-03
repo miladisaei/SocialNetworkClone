@@ -28,6 +28,7 @@ constructor(
     val postsLiveData: LiveData<List<Post>> = _postsLiveData
 
     var page = 1
+    var fragmentPaused = false
 
     init {
         getPosts()
@@ -45,7 +46,26 @@ constructor(
             page = page,
             count = POST_PAGINATION_PAGE_SIZE
         ).collect { postsResult ->
-            _postsLiveData.postValue(postsResult)
+            if (!fragmentPaused)
+                _postsLiveData.postValue(postsResult)
+            else {
+                updatePostList(postsResult)
+            }
+        }
+    }
+
+    private fun updatePostList(subPostList: List<Post>) {
+        val parentPostList = _postsLiveData.value?.toMutableList()
+        for (post in subPostList) {
+            val index = parentPostList?.indexOfFirst { it.postId == post.postId }
+            if (index != -1 && parentPostList != null && index != null) {
+                if (post != parentPostList[index]) {
+                    parentPostList[index] = post
+                }
+            }
+        }
+        parentPostList?.let {
+            _postsLiveData.postValue(it)
         }
     }
 

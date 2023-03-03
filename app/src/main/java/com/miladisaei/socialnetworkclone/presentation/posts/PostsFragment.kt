@@ -1,6 +1,7 @@
 package com.miladisaei.socialnetworkclone.presentation.posts
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
@@ -16,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.miladisaei.socialnetworkclone.R
 import com.miladisaei.socialnetworkclone.databinding.FragmentPostsBinding
 import com.miladisaei.socialnetworkclone.util.POST_PAGINATION_PAGE_SIZE
+import com.miladisaei.socialnetworkclone.util.TAG
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -123,4 +125,13 @@ class PostsFragment : Fragment() {
         }
     }
 
+    override fun onPause() {
+        super.onPause()
+        viewModel.fragmentPaused = true
+    }
+
+    override fun onResume() {
+        super.onResume()
+        viewModel.fragmentPaused = false
+    }
 }
